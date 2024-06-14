@@ -1,15 +1,11 @@
-// FirstStrike Component - Modified by PN-Tester
-// uefi_winload_ntos_kmd_c.c : special kmd for use in pre-patched ntoskrnl.exe with VBS enforced code integrity
-//
-// (planned to be used in demo at 34c3)
-//
-// (c) Ulf Frisk, 2017
-// Author: Ulf Frisk, pcileech@frizk.net
-//
+// FirstStrike Component - Modified by PN-Tester (2024) 
+// PCILeech by (c) Ulf Frisk, 2017
+// Project Author: Ulf Frisk, pcileech@frizk.net
+// FirstStrike Author: Pierre-Nicolas Allard-Coutu (github.com/PN-Tester)
 // compile with:
-// cl.exe /O /Os /Oy /FD /MT /GS- /J /GR- /FAcs /W4 /Zl /c /TC /kernel uefi_winload_ntos_kmd_c.c
-// ml64.exe uefi_winload_ntos_kmd.asm /Feuefi_winload_ntos_kmd.exe /link /NODEFAULTLIB /RELEASE /MACHINE:X64 /entry:main uefi_winload_ntos_kmd_c.obj
-// shellcode64.exe -o uefi_winload_ntos_kmd.exe
+// cl.exe /O1 /Os /Oy /FD /MT /GS- /J /GR- /FAcs /W4 /Zl /c /TC /kernel firststrike_uefi_winload_ntos_kmd_c.c
+// ml64.exe uefi_winload_ntos_kmd.asm /Fefirststrike_uefi_winload_ntos_kmd.exe /link /NODEFAULTLIB /RELEASE /MACHINE:X64 /entry:main firststrike_uefi_winload_ntos_kmd_c.obj
+// shellcode64.exe -o firststrike_uefi_winload_ntos_kmd.exe
 //
 #include <windows.h>
 #pragma warning( disable : 4047 4055 4127)
