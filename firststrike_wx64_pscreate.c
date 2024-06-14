@@ -7,8 +7,8 @@
 // FirstStrike Author : Pierre-Nicolas Allard-Coutu (github.com/PN-Tester)
 // compile with (firststrike_wx64_pscmd.exe):
 // cl.exe /O1 /Os /Oy /FD /MT /GS- /J /GR- /FAcs /W4 /Zl /c /TC /kernel wx64_common.c
-// cl.exe /O1 /Os /Oy /FD /MT /GS- /J /GR- /FAcs /W4 /Zl /c /TC /kernel /D_PSCMD /D_PSCMD_SYSTEM /D_WIN7_COMPAT wx64_pscreate.c
-// ml64 wx64_common_a.asm /Fefirststrike_wx64_pscmd.exe /link /NODEFAULTLIB /RELEASE /MACHINE:X64 /entry:main wx64_pscreate.obj wx64_common.obj
+// cl.exe /O1 /Os /Oy /FD /MT /GS- /J /GR- /FAcs /W4 /Zl /c /TC /kernel /D_PSCMD /D_PSCMD_SYSTEM /D_WIN7_COMPAT firststrike_wx64_pscreate.c
+// ml64 wx64_common_a.asm /Fefirststrike_wx64_pscmd.exe /link /NODEFAULTLIB /RELEASE /MACHINE:X64 /entry:main firststrike_wx64_pscreate.obj wx64_common.obj
 // shellcode64.exe -o firststrike_wx64_pscmd.exe "PROCESS CREATOR - AUTOMATICALLY SPAWN CMD.EXE ON TARGET!        \n================================================================\nAutomatically spawn a CMD.EXE on the target system. This utility\nonly work if the target system is locked and the login screen is\nvisible. If it takes time waiting - then please touch any key on\nthe target system.   If the utility fails multiple times, please\ntry wx64_pscreate instead.                                      \n===== DETAILED INFORMATION AFTER PROCESS CREATION ATTEMPT ======%s\nNTSTATUS        : 0x%08X                                        \nADDITIONAL INFO : 0x%04X                                        \n================================================================\n"
 //
 #include "wx64_common.h"
