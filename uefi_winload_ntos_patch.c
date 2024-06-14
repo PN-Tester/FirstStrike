@@ -1,3 +1,4 @@
+// FirstStrike Component - Modified by PN-Tester
 // uefi_winload_ntos_patch.c : hooks/patches ntoskrnl.exe!PsCreateSystemThreadEx with evil code.
 // evil code consists of:
 // - custom kernel module
