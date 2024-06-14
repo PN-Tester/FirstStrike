@@ -1,3 +1,4 @@
+// FirstStrike Component - Modified by PN-Tester
 // wx64_pscreate.c : create/spawn new user mode processes.
 // Compatible with Windows x64.
 //
