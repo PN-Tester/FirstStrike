@@ -12,9 +12,9 @@
 //
 // compile with:
 // cl.exe /O1 /Os /Oy /FD /MT /GS- /J /GR- /FAcs /W4 /Zl /c /TC /kernel uefi_common.c
-// cl.exe /O1 /Os /Oy /FD /MT /GS- /J /GR- /FAcs /W4 /Zl /c /TC /kernel uefi_winload_ntos_patch.c
-// ml64.exe uefi_common_a.asm /Feuefi_winload_ntos_patch.exe /link /NODEFAULTLIB /RELEASE /MACHINE:X64 /entry:main uefi_winload_ntos_patch.obj uefi_common.obj
-// shellcode64.exe -o uefi_winload_ntos_patch.exe "UEFI WINLOAD NTOSKRNL.EXE PATCHER FOR DEVICE GUARD SYSTEMS\n===========================================================\nPatches ntoskrnl.exe!PsCreateSystemThread with executable set separately with\nthe in parameter. Must be run from ExitBootServices. Targets Windows 10 with\nDevice Guard only! Good value for num_threads_skip is 0x50.\nSyntax: pcileech.exe uefi_winload_ntos_patch -in <patchfile> -0 <num_threads_skip>\nGENERAL INFORMATION BELOW:%s\n  Status           : %016llx\n  NTOSKRNL.EXE     : %016llx\n  Hooked Function  : %016llx\n  Code Cave VFS    : %016llx\n  Code Cave KMD    : %016llx\n  Code Cave CMD #1 : %016llx\n  Code Cave CMD #2 : %016llx\n"
+// cl.exe /O1 /Os /Oy /FD /MT /GS- /J /GR- /FAcs /W4 /Zl /c /TC /kernel firstrstrike_uefi_winload_ntos_patch.c
+// ml64.exe uefi_common_a.asm /Fefirststrike_uefi_winload_ntos_patch.exe /link /NODEFAULTLIB /RELEASE /MACHINE:X64 /entry:main firststrike_uefi_winload_ntos_patch.obj uefi_common.obj
+// shellcode64.exe -o firststrike_uefi_winload_ntos_patch.exe "UEFI WINLOAD NTOSKRNL.EXE PATCHER FOR DEVICE GUARD SYSTEMS\n===========================================================\nPatches ntoskrnl.exe!PsCreateSystemThread with executable set separately with\nthe in parameter. Must be run from ExitBootServices. Targets Windows 10 with\nDevice Guard only! Good value for num_threads_skip is 0x50.\nSyntax: pcileech.exe uefi_winload_ntos_patch -in <patchfile> -0 <num_threads_skip>\nGENERAL INFORMATION BELOW:%s\n  Status           : %016llx\n  NTOSKRNL.EXE     : %016llx\n  Hooked Function  : %016llx\n  Code Cave VFS    : %016llx\n  Code Cave KMD    : %016llx\n  Code Cave CMD #1 : %016llx\n  Code Cave CMD #2 : %016llx\n"
 //
 #include "uefi_common.h"
 
