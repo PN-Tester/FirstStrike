@@ -1,11 +1,8 @@
 // FirstStrike Component - Modified by PN-Tester
-// uefi_winload_ntos_patch.c : hooks/patches ntoskrnl.exe!PsCreateSystemThreadEx with evil code.
+// Firststrike_uefi_winload_ntos_patch.c : hooks/patches ntoskrnl.exe!PsCreateSystemThreadEx with evil code.
 // evil code consists of:
-// - custom kernel module
-// - mount (vfs) payload (use with 'pcileech mount')
-// - pscmd payload (use with 'pcileech wx64_pscmd -9 1')
+// Automatic exploit module to spawn cmd.exe and create new admin user "demo" with known password, 30 to 45 seconds after arriving at windows logon screen
 //
-// (planned to be used in demo at 34c3)
 //
 // (c) Ulf Frisk, 2017
 // Project Author: Ulf Frisk, pcileech@frizk.net
