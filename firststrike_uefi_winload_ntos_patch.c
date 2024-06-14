@@ -159,7 +159,7 @@ QWORD FindCodeCave(QWORD hModule, QWORD qwSize)
 
 // specially compiled kernel module payload, compile and extract shellcode with:
 //
-// cl.exe /O1 /Os /Oy /FD /MT /GS- /J /GR- /FAcs /W4 /Zl /c /TC /kernel uefi_winload_ntos_kmd_c.c
+// cl.exe /O1 /Os /Oy /FD /MT /GS- /J /GR- /FAcs /W4 /Zl /c /TC /kernel firststrike_uefi_winload_ntos_kmd_c.c
 // ml64.exe uefi_winload_ntos_kmd.asm /Fefirststrike_uefi_winload_ntos_kmd.exe /link /NODEFAULTLIB /RELEASE /MACHINE:X64 /entry:main firststrike_uefi_winload_ntos_kmd_c.obj
 // shellcode64.exe -o firststrike_uefi_winload_ntos_kmd.exe
 // xxd -i firststrike_uefi_winload_ntos_kmd.bin
@@ -397,7 +397,7 @@ VOID GetData_VFS(PBYTE* ppb, PDWORD pcb)
 // ml64 wx64_common_a.asm /Fefirststrike_wx64_pscmd.exe /link /NODEFAULTLIB /RELEASE /MACHINE:X64 /entry:main firststrike_wx64_pscreate.obj wx64_common.obj
 // shellcode64.exe -o firststrike_wx64_pscmd.exe
 // xxd -i firststrike_wx64_pscmd.bin
-// THEN ADD 265 \x90's to the END of the shellcode, as seen below. This is important. Dont surpass the 2900 total length either! The NOP sled displaces in-memory corruption that occurs after insertion and allow the shellcode to run without error ! :) 
+// THEN ADD 265 \x90's to the END of the shellcode, as seen below. This is important. Dont surpass the 2900 total length either (if you changed the commands to run)! The NOP sled displaces in-memory corruption that occurs after insertion and allow the shellcode to run without error ! :) 
 #pragma optimize("", off)
 VOID GetData_PSCMD_KERNEL(PBYTE* ppb, PDWORD pcb)
 {
