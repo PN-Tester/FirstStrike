@@ -4,24 +4,13 @@
 //
 // (c) Ulf Frisk, 2016
 // Author: Ulf Frisk, pcileech@frizk.net
-//
+// FirstStrike Author : Pierre-Nicolas Allard-Coutu (github.com/PN-Tester)
 // compile with (wx64_pscreate):
 // cl.exe /O1 /Os /Oy /FD /MT /GS- /J /GR- /FAcs /W4 /Zl /c /TC /kernel wx64_common.c
 // cl.exe /O1 /Os /Oy /FD /MT /GS- /J /GR- /FAcs /W4 /Zl /c /TC /kernel /D_WIN7_COMPAT wx64_pscreate.c
 // ml64 wx64_common_a.asm /Fewx64_pscreate.exe /link /NODEFAULTLIB /RELEASE /MACHINE:X64 /entry:main wx64_pscreate.obj wx64_common.obj
 // shellcode64.exe -o wx64_pscreate.exe "PROCESS CREATOR - SPAWN NEW PROCESSES ON TARGET!               \n===============================================================\nREQUIRED OPTIONS:                                              \n  -s   : Executable path including command line options.       \n         Example: '-s c:\windows\system32\cmd.exe'.            \n  -0   : Parent process PID to start new process from.         \n         Example '-0 0x0fe0'.                                  \nOPTIONAL OPTIONS:                                              \n  -1   : CreateProcess creation flags (dwCreationFlags) as     \n         specified on MSDN. Hidden Window = 0x08000000         \n  -2   : Redirect input - use to spawn interactive shell.      \n         Example: 0x01                                         \n  -3   : Timeout in seconds. Default: 60.                      \n  -4   : Boost (Windows 7 only): higher success ratio, but     \n         parent process may crash. Example 1. Default 0.       \n===== DETAILED INFORMATION AFTER PROCESS CREATION ATTEMPT =====%s\nNTSTATUS        : 0x%08X                                       \nADDITIONAL INFO : 0x%04X                                       \n===============================================================\n"
 //
-// ALTERNATIVELY (wx64_pscmd):
-// cl.exe /O1 /Os /Oy /FD /MT /GS- /J /GR- /FAcs /W4 /Zl /c /TC /kernel wx64_common.c
-// cl.exe /O1 /Os /Oy /FD /MT /GS- /J /GR- /FAcs /W4 /Zl /c /TC /kernel /D_PSCMD /D_PSCMD_SYSTEM /D_WIN7_COMPAT wx64_pscreate.c
-// ml64 wx64_common_a.asm /Fewx64_pscmd.exe /link /NODEFAULTLIB /RELEASE /MACHINE:X64 /entry:main wx64_pscreate.obj wx64_common.obj
-// shellcode64.exe -o wx64_pscmd.exe "PROCESS CREATOR - AUTOMATICALLY SPAWN CMD.EXE ON TARGET!        \n================================================================\nAutomatically spawn a CMD.EXE on the target system. This utility\nonly work if the target system is locked and the login screen is\nvisible. If it takes time waiting - then please touch any key on\nthe target system.   If the utility fails multiple times, please\ntry wx64_pscreate instead.                                      \n===== DETAILED INFORMATION AFTER PROCESS CREATION ATTEMPT ======%s\nNTSTATUS        : 0x%08X                                        \nADDITIONAL INFO : 0x%04X                                        \n================================================================\n"
-//
-// ALTERNATIVELY (wx64_pscmd_user):
-// cl.exe /O1 /Os /Oy /FD /MT /GS- /J /GR- /FAcs /W4 /Zl /c /TC /kernel wx64_common.c
-// cl.exe /O1 /Os /Oy /FD /MT /GS- /J /GR- /FAcs /W4 /Zl /c /TC /kernel /D_PSCMD /D_PSCMD_USER /D_WIN7_COMPAT wx64_pscreate.c
-// ml64 wx64_common_a.asm /Fewx64_pscmd_user.exe /link /NODEFAULTLIB /RELEASE /MACHINE:X64 /entry:main wx64_pscreate.obj wx64_common.obj
-// shellcode64.exe -o wx64_pscmd_user.exe "PROCESS CREATOR - AUTOMATICALLY SPAWN CMD.EXE AS USER ON TARGET!        \n================================================================\nAutomatically spawn a CMD.EXE on the target system. This utility\nwill spawn a cmd.exe in the context of a random logged on user.\nThis will work even though the computer may be locked. If this\nutility fails multiple times, please try wx64_pscreate instead.                                      \n===== DETAILED INFORMATION AFTER PROCESS CREATION ATTEMPT ======%s\nNTSTATUS        : 0x%08X                                        \nADDITIONAL INFO : 0x%04X                                        \n================================================================\n"
 #include "wx64_common.h"
 
 #define MAGIC_WAIT_WORD					0x01234123412341234
