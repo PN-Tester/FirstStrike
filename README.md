@@ -27,4 +27,4 @@ Hopefully this tool works to enable testers to exploit a scenario via DMA attack
 
 # Shoutout
 I also want to provide a shoutout to [Ulf Frisk](https://github.com/ufrisk) for the fantastic [PCILeech framework](https://github.com/ufrisk/pcileech) which enabled this project. I hope that this contribution can add a tiny bit of versatility to the wider community by enabling DMA attacks when preboot DMA is disabled but the OS is otherwise well protected. This scenario can occur in real life
-and tester's should be able to exploit and provide PoC without too much overhead using this module.
+and testers should be able to exploit and provide PoC without too much overhead using this module.
