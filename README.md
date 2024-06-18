@@ -9,7 +9,7 @@ FirstStrike solves that problem by automating the exploitation steps that need t
 1. Either compile from source or move the precompiled .ksh file to your pcileech folder alongside the other .ksh files on your attack computer.
 2. With the proper PCIexpress connection to the target laptop established (using PCILeech firmware and appropriate hardware), boot the target computer and enter UEFI
 3. Again, obviously the target needs to have preboot DMA protection disabled for this to work.
-4. Run ```PCILeech.exe -kmdload UEFI_EXIT_BOOT_SERVICES``` to locate EFI system table and hook the exit function
+4. Run ```PCILeech.exe kmdload -kmd UEFI_EXIT_BOOT_SERVICES``` to locate EFI system table and hook the exit function
 5. Exit UEFI on target computer, which will trigger your hook and jump to your UEFI kmd. Boot process on target computer will hang here. You should see success message from PCILeech with address of your KMD for example 0x38000000
 6. Run ```PCILeech.exe FirstStrike -kmd <AddressOfKmd> -0 0x99``` replacing <AddressOfKmd> with the address you received in the previous step
 7. You should see success message.
