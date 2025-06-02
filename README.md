@@ -15,7 +15,7 @@ FirstStrike solves that problem by automating the exploitation steps that need t
 7. You should see success message.
 8. Run ```PCIleech.exe kmdexit -kmd <AddressOfKmd>``` replacing <addressOfKmd> with the address you received before. 
 9. Target computer should now proceed with normal boot.
-10. Approximately 30-45 seconds after arriving at windows logon screen, shellcode should detonate
+10. Approximately 30-120 seconds after arriving at windows logon screen, shellcode should detonate. (timeframe may vary)
 11. You will see a messagebox containing the message "PN" appear if shellcode detonation is successful
 12. You can close messagebox and login to target computer with newly created local administrator ```demo``` and password ```P@ssw0rd123!```
 
